@@ -1,0 +1,125 @@
+.cart-div{
+    margin: auto;
+    width: 60%;
+    margin-left: 160px;
+    user-select: none;
+    padding-bottom: 20px;
+}
+.mycart{
+    padding: 15px 30px 15px;
+    font-size: smaller;
+}
+.BookCover{
+    height: 85px;
+    width: 65px;
+    background-color:#e1e1e1;
+}
+.mycarttxt{
+    font-weight: 450;
+}
+.CartBookD{
+    margin-top: 25px;
+}
+.CartBookDetail, .BookCover{
+    display: inline-block;
+}
+.CartBookDetail{
+    vertical-align: top;
+    margin-left: 28px;
+}
+
+.CartBookDetail .price{
+margin-top: 5px;
+margin-left: 5px;
+}
+.CartBookDetail .author{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.mat-mini-fab .mat-button-wrapper{
+    vertical-align: text-bottom !important;
+    padding: 0 !important;
+    top: 0;
+    vertical-align: super !important;
+    line-height: 15px !important;
+}
+.mat-mini-fab {
+    line-height: 32px !important;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 6px 10px 0px rgb(0 0 0 / 0%),
+    0px 1px 18px 0px rgb(0 0 0 / 12%) !important;
+}
+.mat-mini-fab:active{
+    background-color: gray;
+   
+}
+.mat-mini-fab:enabled:active .mat-icon{
+    color: white;   
+   }
+.count-input{
+    text-align: center; 
+    border: solid #e1e1e1 1px;
+    width: 25px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} 
+input:focus{
+    outline: inherit;
+} 
+.cartadd{
+    height: 20px !important;
+    width: 20px !important; 
+     /* font-size:25px;  */
+} 
+.bookcount{
+    margin-top: 20px;
+} 
+.remove-cart{
+    margin-left: 20px;
+}
+.cust-in{
+    margin-top: 10px;
+    width: 80%;
+}
+.addressForm{
+    font-size: 13px;
+}
+
+.addt{
+    resize: none !important;
+}
+.rdtype{
+margin-bottom: 17px;
+}
+.pobt{
+    color: white;
+    background-color: rgb(86, 86, 255);
+    width: 150px;
+    font-size: smaller;
+    font-weight: 200;
+    float: right;
+}
+.bt{
+    margin-top: 20px;   
+}
+.customerdedit{
+    cursor: pointer;
+    font-size: 15px;
+    float: right;
+}
+.div-border{
+    border: solid #e1e1e1 1px;
+    padding: 15px 30px 15px;
+    width: -webkit-fill-available;
+}
+.cart-cotainer{
+    margin: auto;
+    margin-top: 90px;  
+}
+.cartbookimg{
+    width: inherit;
+    height: inherit;
+}

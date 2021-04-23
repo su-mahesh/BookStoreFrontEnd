@@ -1,0 +1,110 @@
+
+<div class="cart-cotainer">
+<div class="cart-div" fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div class="mycart div-border">
+        <div class="mycarttxt">My cart<span *ngIf="CartLength>0">&nbsp;({{CartBooks.length}}) </span></div>
+        <div class="cart-content">
+            <div class="CartBookD" *ngFor="let Book of CartBooks">
+                <div class="BookCover">
+                    <img class="cartbookimg" src="{{Book['bookImage']}}">
+                </div>   
+                <div class="CartBookDetail">
+                    <div >{{Book['bookName']}}</div>
+                    <div class="author"> by {{Book['authorName']}}</div>
+                    <div class="price">
+                        Rs. {{Book['bookPrice']}}</div>
+                    <div class="bookcount" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                        <button [disabled]="Book['count'] < 1" (click)="Book['count']=Book['count']-1" disableRipple=true class="cartadd" mat-mini-fab color="white">
+                            <mat-icon class="cartadd-icon" [inline]="true">remove</mat-icon>
+                        </button>
+                        <input type="number" class="count-input" value="{{Book['count']}}" min="0"  pattern="^[0-9]*$">
+                        <button [disabled]="Book['count'] > 49" (click)="Book['count']=Book['count']+1" disableRipple=true class="cartadd" mat-mini-fab color="white">
+                            <mat-icon class="cartadd-icon" [inline]="true">add</mat-icon>
+                        </button>
+                        <div class="remove-cart"><span>Remove</span></div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        <div>
+            <button *ngIf="!custd" (click)="placOrder(customerd)" class="pobt" mat-raised-button >PLACE ORDER</button>
+        </div>
+    </div>
+    <div class="customer-d div-border" #customerd>
+        <div  class=""><Span>Customer Details</Span>
+            <span class="customerdedit" *ngIf="editVisibiliy" (click)="ToggleCEdit()">Edit</span></div>
+        <div [style.display]="custd ? 'block' : 'none'" class="cust-in">
+            <form class="addressForm" [formGroup]="addressForm" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">            
+            <mat-form-field appearance="outline" >
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="Name" [readonly]="custaedit">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone number</mat-label> 
+                <input matInput type="number" formControlName="PhoneNumber" [readonly]="custaedit">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Pincode</mat-label>
+                <input matInput formControlName="Pincode" [readonly]="custaedit" type="number" pattern="^[0-9]{6}$">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Locality</mat-label>
+                <input matInput formControlName="Locality"  [readonly]="custaedit">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field fxFlex="1 1 68" appearance="outline" #Addrress>
+                <mat-label>Addrress</mat-label>
+                <textarea class="addt" cols="50" rows="4" matInput formControlName="Address"  [readonly]="custaedit"></textarea>
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City/town</mat-label>
+                <input matInput formControlName="City"  [readonly]="custaedit">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Landmark</mat-label>
+                <input matInput formControlName="Landmark" [readonly]="custaedit">
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-label class="rdtype" fxFlex="1 1 100%">Type</mat-label>
+            <mat-radio-group [disabled]="custaedit" formControlName="AddressType" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="50px">
+                <mat-radio-button value="Home" >Home</mat-radio-button >
+                <mat-radio-button value="Work">Work</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+            <div class="bt" fxFlex="1 1 100%">
+                <button *ngIf="!editVisibiliy" class="pobt" mat-raised-button (click)="addressForm.valid && FillAddress(ordersummary)">CONTINUE</button>
+            </div>
+            
+        </form>
+        </div>
+    </div>
+    <div class="order-summary div-border" #ordersummary>
+        <div class="">Order summary</div>
+        <div *ngIf="editVisibiliy">
+           
+            <div class="CartBookD" *ngFor="let Book of CartBooks">
+                <div class="BookCover">
+                    <img class="cartbookimg" src="{{Book['bookImage']}}">
+                </div>
+                <div class="CartBookDetail">
+                    <div >{{Book['bookName']}}</div>
+                    <div class="author"> by {{Book['authorName']}}</div>
+                    <div class="price">
+                        Rs. {{Book['bookPrice']}}</div>
+                    <div class="author" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                        Quantity
+                        <span>&nbsp; {{Book['count']}}</span>
+                    </div>                    
+                </div>  
+            </div>
+            <div>
+                <button (click)="CheckOut()"  class="pobt" mat-raised-button >CHECKOUT</button>
+            </div>
+    </div>
+</div>
+</div>

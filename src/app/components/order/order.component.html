@@ -1,0 +1,35 @@
+<div class="order-container">
+        <div class="order-detail">
+            <div class="order-message">
+                <div class="img1">
+                    <img src="\assets\o1.PNG">
+                </div>
+                <div class="orderplace">
+                    <span>Order Placed Successfully</span>
+                </div>
+                <div class="img2">
+                    <img src="\assets\o2.PNG">
+                </div>
+                <div class="hurray">
+                    <span>hurray!!! your order is confirmed
+                        the order id is #{{OrderID}} save the order id for
+                        further communication
+                    </span>
+                </div>
+                <div class="contact-us-detail">
+                    <table class="contactus-table">
+                        <tr class="contactus-th"><th>Email us</th><th>Contact us</th><th>Address</th></tr>
+                        <tbody>
+                            <tr>
+                                <td>{{ShopEmail}}</td><td class="ShopContact">{{ShopContact}}</td><td>{{ShopAddress}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="conshop">
+            <button routerLink="/dashboard" class="pobt conbt" mat-raised-button >CONTINUE SHOPPING</button>
+        </div>
+</div>
+

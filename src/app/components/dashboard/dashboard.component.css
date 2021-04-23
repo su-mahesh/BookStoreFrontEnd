@@ -1,0 +1,106 @@
+.toolbar{
+    user-select: none;
+    position: fixed;
+    background-color: brown;
+    height: 50px;
+    overflow: hidden;
+    top: 0;
+    z-index: 5;
+}
+.search{
+    width: 40%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-size: 8px;
+}
+.search-input{
+    width: -webkit-fill-available;
+}
+.search-input .mat-input-element{
+    font: -webkit-control;
+}
+.search-input .mat-form-field-wrapper{
+    padding-bottom: 0 !important;
+   
+}
+.search-input .mat-form-field-flex .mat-form-field-outline {
+    background-color: white !important;
+    border-radius: 5px !important;
+    border: none;
+  }
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+.mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap {
+    border-width: 1px !important;
+}
+.books-nav{
+    bottom: 0;
+}
+
+
+.dashboard{
+    height: fit-content;
+}
+
+igx-tab-panel {
+    padding: 10px;
+}
+.cart-text{
+color: white;
+font-size: 13px;
+margin-right: 5px;
+font-weight: 300;
+}
+.cart{
+    margin-right: 10%;
+    float: right;
+    margin-left: auto;
+    cursor: pointer;
+}
+.cart-icon{
+    display: inline-flex;
+}
+.cart-number{
+    margin-left: -11px;
+    margin-top: -8px;
+    position: sticky;
+    text-align: center;
+    line-height: 15px;
+    vertical-align:middle;
+    font-size: 10px;
+    color: brown;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+
+.BookTitletxt{
+    font-size: 17px;
+    font-weight: 400;
+    color: white;
+}
+.BookTitle{
+    cursor: pointer;
+    margin-left: 15%;
+}
+.bookI{
+    width: 20px;
+}
+.BookIcon{
+    margin-right: 5px;
+}
+
+a{ cursor: pointer; }
+
+.BookTitle:active, .BookTitle:focus, .cart:active, .cart:focus {
+    outline: 0;
+    border: none;
+  }
+  .mat-badge-content {
+    background: white;
+    color: brown;
+}

@@ -1,0 +1,55 @@
+<div class="container-books">
+    <div class="books-menu" fxLayout="row wrap" fxLayoutAlign="space-between center"  >
+        <div><span class="booksl">Books<span class="NBooks" *ngIf="BookQuanity != 0">&nbsp; {{BookQuanity}} </span></span></div>
+        <div class="sort"> 
+            <mat-form-field >
+            <select matNativeControl>
+                <option value="relevence">Sort by relevence</option>
+                <option value="PLT">Price: Low to High</option>
+                <option value="PHL">Price: High to Low</option>
+                <option value="NA">Newest Arrivals</option>
+            </select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="books-container">
+        <div class="container-books-flex" fxLayout="row wrap" fxLayoutAlign="center center" dir="ltr" >
+            <mat-card (mouseenter) ="position(book['bookDiscription'],$event)" [attr.id]="'book'+book['bookID']"
+            (mouseleave)="CloseBDesc()" *ngFor="let book of Books; let i=index;" class="book-card" fxLayout="column" fxLayoutAlign="start none" >
+               <div class="book-cover" fxFlex="60"  fxLayout="row wrap" fxLayoutAlign="center center" >
+                   <img class="BookCoverImg" src="{{book['bookImage']}}">
+                   <mat-card *ngIf="book['inStock']==false" class="out-of-stock" >
+                    <span class="oos">OUT OF STOCK</span>
+                   </mat-card>
+               </div> 
+               <div class="book-bt" fxFlex="42">
+                    <div class="book-title">
+                        {{book['bookName']}}
+                    </div>
+                    <div class="author">
+                       by {{book['authorName']}}
+                    </div>
+                    <div class="price">
+                        Rs. {{book['bookPrice']}}
+                    </div>
+                    <div class="book-shop" fxLayout="row" fxLayoutAlign="space-between center">
+                        <button [disabled]="book['inCart']" [attr.id]="'cart_book'+book['bookID']" [class]="book['inCart'] ? 'addedcart':'addcart'" class="ADD-CART" (click)="AddToCart(book['bookID'],i)" mat-raised-button color="primary" 
+                        fxFlex="{{book['inCart'] ? grow : 45}}" *ngIf="book['inStock']==true">{{book['inCart'] ? BagAddedTxt :  BagAddTxt}}</button>
+                        <button [attr.id]="'wishlist_book'+book['bookID']" *ngIf="!book['inCart']" class="ADD-WISH" mat-raised-button color="white" fxFlex="{{book['inStock']==false ? grow : 45}}" >WISHLIST</button>
+                    </div>
+               </div>
+            </mat-card>
+        </div>
+        <mat-card  id="bookdesc" *ngIf="BookDesc" class="book-desc" [style.top.px]="top" [style.left.px]="left" #bookdesc>
+        <div class="BookDetail">Book Detail</div>
+        <div class="BookDesc">
+            {{BookDescription}}
+        </div>
+        </mat-card>
+    </div>
+    <div class="books-nav">
+        <app-jw-pagination [items]="BooksArray" [pageSize]="12" (changePage)="onChangePage($event)"></app-jw-pagination>
+        <!-- <jw-pagination [items]="BooksArray" [pageSize]="12" (changePage)="onChangePage($event)"></jw-pagination> -->
+    </div>
+</div>
+

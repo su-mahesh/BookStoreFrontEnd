@@ -1,0 +1,70 @@
+.order-container{
+    padding-top: 53px;
+    margin: auto;
+}
+.order-detail{
+    margin: auto;
+    margin-top: 50px;
+    width: fit-content;
+}
+.contactus-table{
+   width: 65%;
+   margin: auto;
+}
+.hurray, .orderplace{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+.orderplace{
+    font-weight: 500;
+    font-size: 18px;
+}
+.contact-us-detail{
+    margin-top: 30px;
+}
+.contactus-table tbody {
+    font-size: 12px;
+    text-align: center;
+}
+.contactus-table th{
+    padding: 10px;
+    font-size: 14px;
+    font-weight: inherit;
+}
+.ShopContact{
+    white-space: nowrap
+}
+.contactus-th{
+    background:  rgb(241 241 241);
+  
+}
+.contactus-table{
+    border-spacing: unset;
+    border: solid 1px rgb(182, 182, 182);
+}
+td{
+    padding: 10px 20px;
+}
+table td {
+    border: solid 1px rgb(221 221 221)
+}
+.img1, .img2{
+    width: fit-content;
+    margin: auto;
+}
+.img2{
+    margin-top: 10px;
+}
+.hurray{
+width: 26%;}
+.conbt{
+    width: auto;
+}
+.conshop
+{
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}

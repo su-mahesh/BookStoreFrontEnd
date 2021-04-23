@@ -1,0 +1,110 @@
+.book-card{
+    width: 210px;
+    height: 270px;
+    margin: 10px;
+    background-color: rgb(241, 241, 241);
+    padding: 0;
+}
+.container-books{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.book-bt{
+    background: white;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+    padding: 10px
+}
+.book-shop .ADD-CART{
+    padding: 0 13px;
+}
+.ADD-CART{
+    background-color:brown;
+}
+
+.ADD-CART:disabled{
+    color: white;
+    background-color:blue;
+}
+.ADD-WISH{
+    font-weight: 500 !important;
+}
+.book-shop .mat-raised-button{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 11px;
+    font-weight: 100;
+    line-height: 26px;
+}
+.book-shop{
+    height: 45px;
+}
+
+.book-title {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+}
+
+.out-of-stock{
+    position: absolute;
+    text-align: center;
+    padding: 0;
+    margin: auto;
+    height: 30px;
+    width: 150px;
+    background: white;
+    cursor: default;
+}
+
+.oos{
+    vertical-align: -webkit-baseline-middle;
+    font-size: 14px;
+    font-weight: 400;
+}
+.book-desc{
+    position: absolute;
+    z-index: 4;
+    cursor: default;
+}
+.BookDesc{
+    margin-top: 5px;
+   font-size: 12px; 
+   color: gray;
+}
+.BookDetail{
+    font-size: 15px; 
+    font-weight: 400;
+}
+.book-desc{
+    padding: 10px;
+    max-width: 300px;
+}
+
+.books-menu{
+    margin: 0 13%;
+    z-index: 4;
+    background: white;
+  
+}
+.books-nav{
+    margin-top: 3px;
+    z-index: 4;
+    background: white;
+    padding: 0px 19%;
+    z-index: 4;
+    padding-top: 13px;
+    padding-bottom: 7px;
+}
+.sort{
+    font-size: 10px;
+}
+.booksl{
+    font-size: 16px;
+    font-weight: 450;
+}
+.NBooks{
+    color: gray;
+    font-size: 10px;
+    font-weight: 100; 
+}
