@@ -104,3 +104,9 @@ a{ cursor: pointer; }
     background: white;
     color: brown;
 }
+.search-icon{
+    font-size: large !important;
+    color: #c1c1c1;
+    font-weight: 550;
+    padding-left: 3px;
+}

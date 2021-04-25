@@ -16,9 +16,13 @@ export class DataService implements OnInit {
   private OrderID = new BehaviorSubject(null);
   OrderIDCurrent = this.OrderID.asObservable();
 
-  constructor(private CartService : CartService) {
-    
-   }
+  private Search = new BehaviorSubject(null);
+  SearchCurrent = this.Search.asObservable();
+
+  constructor(private CartService : CartService) { }
+  SearchBooks(param){
+    this.Search.next(param)
+  }
   ngOnInit(): void {
     this.LoadCart();
   }
@@ -29,9 +33,9 @@ export class DataService implements OnInit {
     });
   }
 
-  UpdateBooks(message: string) {
-    this.booksArray.next(message);
-  }
+  // UpdateBooks(message: string) {
+  //   this.booksArray.next(message);
+  // }
 
   SetOrderID(OrderID){
     this.OrderID.next(OrderID);

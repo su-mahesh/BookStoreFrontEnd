@@ -3,10 +3,10 @@
         <div><span class="booksl">Books<span class="NBooks" *ngIf="BookQuanity != 0">&nbsp; {{BookQuanity}} </span></span></div>
         <div class="sort"> 
             <mat-form-field >
-            <select matNativeControl>
+            <select matNativeControl (change)="sortBooks($event)">
                 <option value="relevence">Sort by relevence</option>
-                <option value="PLT">Price: Low to High</option>
-                <option value="PHL">Price: High to Low</option>
+                <option value="price0">Price: Low to High</option>
+                <option value="price1">Price: High to Low</option>
                 <option value="NA">Newest Arrivals</option>
             </select>
             </mat-form-field>
@@ -24,7 +24,7 @@
                </div> 
                <div class="book-bt" fxFlex="42">
                     <div class="book-title">
-                        {{book['bookName']}}
+                        {{book['bookName']}} 
                     </div>
                     <div class="author">
                        by {{book['authorName']}}
@@ -48,8 +48,7 @@
         </mat-card>
     </div>
     <div class="books-nav">
-        <app-jw-pagination [items]="BooksArray" [pageSize]="12" (changePage)="onChangePage($event)"></app-jw-pagination>
-        <!-- <jw-pagination [items]="BooksArray" [pageSize]="12" (changePage)="onChangePage($event)"></jw-pagination> -->
+        <app-jw-pagination [items]="BooksArray | search:searchtxt" [pageSize]="12" (changePage)="onChangePage($event)"></app-jw-pagination>
     </div>
 </div>
 

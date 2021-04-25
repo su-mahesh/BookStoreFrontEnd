@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import {BookService} from '../../Services/BookService/book.service';
 import {AddressService} from '../../Services/AddressService/address.service';
 import {CartService} from '../../Services/CartService/cart.service';
 import { DataService } from "../../Services/DataService/data.service";
@@ -13,9 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnChanges {
   BooksInCart : number = 0;
-  CartBooks : [];
+  CartBooks : any [];
   addressForm: FormGroup;
   custd : boolean = false;
   custaedit : boolean = false;
@@ -23,9 +22,7 @@ export class CartComponent implements OnInit {
   editVisibiliy : boolean = false;
   CartLength: number = 0;
   EmptyCart: boolean=true;
-
-  private Name: FormControl = new FormControl({ value: '', disabled:this.custaedit});
-
+ 
   constructor(private data: DataService, private CartService : CartService,
     private formBuilder:FormBuilder, private router: Router,
     private AddressService: AddressService,
@@ -40,6 +37,13 @@ export class CartComponent implements OnInit {
       Landmark:  new FormControl('',Validators.required),
       AddressType: new FormControl('',Validators.required)
     })
+   }
+   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+   }
+   updateBookCount(index, $event){
+    this.CartBooks[index]['count'] = $event.target.value;
+  //  console.log(this.CartBooks[index]['count']=)
    }
    FillAddress(el: HTMLElement){
      this.editVisibiliy = !this.editVisibiliy;

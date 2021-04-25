@@ -25,6 +25,7 @@ import { JwPaginationComponent } from './components/jw-pagination/jw-pagination.
 import { LoginComponent } from './components/login/login.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatBadgeModule} from '@angular/material/badge';
+import { SearchPipe } from './components/search.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     BookDisplayComponent,
     CartComponent,
     OrderComponent,  
-    JwPaginationComponent, LoginComponent
+    JwPaginationComponent, LoginComponent, SearchPipe
   ],
   imports: [
     BrowserModule,

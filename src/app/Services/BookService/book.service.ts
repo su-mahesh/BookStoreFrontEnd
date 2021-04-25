@@ -12,9 +12,13 @@ export class BookService {
   options = { headers: this.headers };
 
   constructor(private httpService : HttpService) { }
-  
+  GetSearchedBooks(param){
+    return this.httpService.Get('Book/'+param, this.options);
+  }
   GetBooks(){
     return this.httpService.Get('Book', this.options);
   }
-
+  GetPriceSortBooks(sort:boolean){
+    return this.httpService.Get('Book/sortbyprice/'+sort, this.options);
+  }
 }

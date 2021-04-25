@@ -29,8 +29,8 @@
        
         <div class="search">
             <mat-form-field class="search-input" appearance="outline">
-                <input class="s-input" matInput placeholder="Search">
-                <mat-icon matSuffix ></mat-icon>
+                <input class="s-input" (keyup.enter)="search($event)" matInput placeholder="Search">
+                <mat-icon class="search-icon" matPrefix >search</mat-icon>
             </mat-form-field>
         </div>
         <div routerLink="/cart" class="cart" fxLayout="row" fxLayoutAlign="center center" >
@@ -38,15 +38,15 @@
             <div class="cart-icon">
                  <!-- <span *ngIf="CartBookNo != 0" class="cart-number">{{CartBookNo}}</span> -->
                  
-            </div><mat-icon matBadge="{{CartBookNo}}" matBadgeSize="small" [matBadgeHidden]="cartMatBatch" matBadgeColor="white"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+            </div>
+            <mat-icon matBadge="{{CartBookNo}}" matBadgeSize="small" [matBadgeHidden]="cartMatBatch" matBadgeColor="white"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
                 aria-hidden="true" focusable="false" width="1em" height="1em" 
                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" 
                 preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"><circle cx="176" cy="416" r="16" fill="none"
                  stroke="#ffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
                  <circle cx="400" cy="416" r="16" fill="none" stroke="#ffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
                  <path  fill="none" stroke="#ffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M48 80h64l48 272h256"/><path d="M160 288h249.44a8 8 0 0 0 7.85-6.43l28.8-144a8 8 0 0 0-7.85-9.57H128" fill="none" stroke="#ffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
-                </mat-icon>
-                
+            </mat-icon>
         </div> 
     </mat-toolbar>
     <div class="container">

@@ -4,7 +4,7 @@
     <div class="mycart div-border">
         <div class="mycarttxt">My cart<span *ngIf="CartLength>0">&nbsp;({{CartBooks.length}}) </span></div>
         <div class="cart-content">
-            <div class="CartBookD" *ngFor="let Book of CartBooks">
+            <div class="CartBookD" *ngFor="let Book of CartBooks; let i = index">
                 <div class="BookCover">
                     <img class="cartbookimg" src="{{Book['bookImage']}}">
                 </div>   
@@ -17,7 +17,7 @@
                         <button [disabled]="Book['count'] < 1" (click)="Book['count']=Book['count']-1" disableRipple=true class="cartadd" mat-mini-fab color="white">
                             <mat-icon class="cartadd-icon" [inline]="true">remove</mat-icon>
                         </button>
-                        <input type="number" class="count-input" value="{{Book['count']}}" min="0"  pattern="^[0-9]*$">
+                        <input [id]="'C'+Book['bookID']" type="number" (change)="updateBookCount(i,$event)" class="count-input" value="{{Book['count']}}" min="0" pattern="^[0-9]*$">
                         <button [disabled]="Book['count'] > 49" (click)="Book['count']=Book['count']+1" disableRipple=true class="cartadd" mat-mini-fab color="white">
                             <mat-icon class="cartadd-icon" [inline]="true">add</mat-icon>
                         </button>

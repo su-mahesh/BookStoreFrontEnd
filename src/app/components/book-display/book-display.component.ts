@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/Services/DataService/data.service';
 import {BookService} from '../../Services/BookService/book.service';
-import {CartService} from '../../Services/CartService/cart.service';
+import {CartService} from '../../Services/CartService/cart.service'; 
+import { SearchPipe } from '../search.pipe';
+
 
 @Component({
   selector: 'app-book-display',
@@ -11,8 +13,6 @@ import {CartService} from '../../Services/CartService/cart.service';
   styleUrls: ['./book-display.component.css']
 })
 export class BookDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
-  // @Input() Books: Array<{ BookID: number, BookTitle:string, BookAuthor:string, BookImage:string, BookDescription:string,
-//  @Input() 
   Books: any;
   BooksArray : Array<any>;
   BookQuntity : number = 10;
@@ -30,15 +30,24 @@ export class BookDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
   subscription: Subscription;
   pageOfItems: Array<any>;
   BookQuanity: number=0;
+  searchtxt:string = '';
   
   constructor(private CartService : CartService, private BookService : BookService, 
     public snackBar: MatSnackBar, private data: DataService) {   }
   ngOnInit(): void { 
+    this.subscription = this.data.SearchCurrent.subscribe(msg =>{
+      
+      this.searchtxt = msg;
+     // this.GetSearchBooks(msg)
+    }) 
     this.subscription = this.data.booksArrayCurrent.subscribe(message => this.Books = message);
     this.LoadBooks();
    }
+  GetSearchBooks(param){
+  //  this.BooksArray = this.SearchPipe.transform(this.BooksArray,param);
+  }
   ngOnDestroy() {
-   // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
   LoadBooks(){
     this.BookService.GetBooks().subscribe(
@@ -48,14 +57,21 @@ export class BookDisplayComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
   onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
-    this.pageOfItems = pageOfItems;
-    this.UpdateBooks(this.pageOfItems);
+    this.Books = pageOfItems;
   } 
-  
-  UpdateBooks(books) {
-    this.data.UpdateBooks(books);
+  sortBooks($event){
+    var sort = false;
+    if($event.target.value=="price0"){
+      sort = true;
+    }
+    
+    this.BookService.GetPriceSortBooks(sort).subscribe(
+      (response: any) => {    
+      this.BooksArray = response['books'];
+      this.BookQuanity= response['books'].length
+    });
   }
+
   position(desc : string, $event: any){
     this.BookDescription = desc;
     this.BookDesc = true;

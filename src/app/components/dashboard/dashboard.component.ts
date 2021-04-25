@@ -24,14 +24,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
      private router: Router, private data: DataService) {  
   }
   ngOnChanges(changes: SimpleChanges) {
-   console.log(changes);
+   //console.log(changes);
   }
-  
+  search($event){
+    if($event.target.value)
+    {
+      this.data.SearchBooks($event.target.value);
+    }
+  }
   ngOnInit(): void {
     this.subscription = this.data.CartCurrent.subscribe(message =>
       { this.CartBookNo = message;
-        this.cartMatBatch = message > 0 ? false:true}); 
-    this.data.LoadCart();
+        this.cartMatBatch = message > 0 ? false:true});
+      this.data.LoadCart();
   }
 
   onActivate($event){
